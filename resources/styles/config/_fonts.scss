@@ -1,0 +1,16 @@
+@mixin font-face($font-family, $url, $weight) {
+  @font-face {
+    font-family: "#{$font-family}";
+    src: url($fonts + "/#{$url}") format("truetype");
+    font-weight: #{$weight};
+    font-display: swap;
+    font-style: normal;
+  }
+}
+
+@include font-face("Marcellus", "/Marcellus/Marcellus-Regular.ttf", 400);
+@include font-face("Manrope", "/Manrope/Manrope-VariableFont_wght.ttf", 500);
+@include font-face("Manrope", "/Manrope/Manrope-VariableFont_wght.ttf", 700);
+
+$font: "Marcellus";
+$font-main: "Manrope";

@@ -1,0 +1,26 @@
+@mixin icon-props($image-url, $width, $height) {
+  display: inline-block;
+  width: #{$width}px;
+  height: #{$height}px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-image: url($image-url);
+}
+
+@mixin icon($name, $image-url, $width, $height, $pseudo: false) {
+  @if $pseudo {
+    content: "";
+    @include icon-props($image-url, $width, $height);
+  } @else {
+    .icon-#{$name} {
+      @include icon-props($image-url, $width, $height);
+    }
+  }
+}
+
+//@include icon("logo", $icons + "/logo.svg", 267, 25);
+
+@include media-breakpoint-down(lg) {
+  // @include icon("logo", $icons + "/logo.svg", 160, 15);
+}

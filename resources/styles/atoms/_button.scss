@@ -1,0 +1,72 @@
+// button {
+//   border: none;
+//   outline: none;
+//   cursor: pointer;
+//   background: none;
+
+//   width: 100%;
+//   resize: none;
+//   background: none;
+
+//   -webkit-touch-callout: none;
+//   -webkit-user-select: none;
+//   -khtml-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+
+//   -webkit-tap-highlight-color: transparent;
+
+//   &:focus {
+//     outline: none;
+//   }
+// }
+
+// @mixin btn {
+//   @include btn-small;
+//   cursor: pointer;
+//   display: block;
+//   position: relative;
+//   min-width: 134px;
+//   width: fit-content;
+//   transition: all 0.3s ease;
+//   z-index: 1;
+//   color: $black;
+//   padding: 12px 35px;
+//   background: $white;
+//   border-radius: 25px;
+
+//   @include media-breakpoint-down(lg) {
+//     padding: 6px 35px 7px;
+//     width: 100%;
+//   }
+// }
+
+// @mixin btn-l {
+//   @include btn;
+//   @include btn-large;
+//   border-radius: 45px;
+//   padding: 28px 70px;
+// }
+
+// @mixin btn-color($color, $bg, $border) {
+//   color: $color;
+//   background-color: $bg;
+//   border-color: $border;
+// }
+
+// .btn {
+//   @include btn;
+
+//   &:hover {
+//     color: $orange;
+//   }
+// }
+
+// .btn-l {
+//   @include btn-l;
+
+//   &:hover {
+//     color: $orange;
+//   }
+// }

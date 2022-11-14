@@ -1,0 +1,66 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    font-size: 20px;
+    color: white;
+
+    @include media-breakpoint-down(lg) {
+      font-size: 10px;
+    }
+  }
+
+  &__tel,
+  &__btn {
+    @include body-small;
+    outline: none;
+    border: 1px solid $white;
+    transform: skewX(-15deg);
+
+    @include media-breakpoint-down(lg) {
+      transform: unset;
+      max-width: 100%;
+    }
+  }
+
+  &__tel {
+    background-color: rgba($dusty, 0.6);
+    max-width: 563px;
+    width: 100%;
+    color: $sea;
+    padding: 20px 22px;
+    transition: border-color 0.3s ease;
+
+    @include media-breakpoint-down(lg) {
+      padding: 11px 0 11px 11px;
+    }
+
+    &::placeholder {
+      @include body-small;
+      color: $sea;
+    }
+
+    &:focus {
+      border: 1px solid $sea;
+    }
+  }
+
+  &__btn {
+    display: inline-block;
+    color: $white;
+    background-color: $red;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
+    padding: 20px 42px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include media-breakpoint-down(lg) {
+      padding: 11px 30px;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+@mixin headline {
+  font-family: $font;
+  font-weight: 700;
+  font-style: normal;
+  color: $black;
+}
+
+@mixin relativeSize($size) {
+  font-size: calc(#{$size} / 1920 * 100vw);
+}
+
+@mixin headline-1 {
+  @include headline;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 113%;
+  letter-spacing: -0.02em;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 40px;
+    line-height: 120%;
+  }
+}
+
+@mixin headline-4 {
+  @include headline;
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 146%;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 24px;
+    line-height: 142%;
+  }
+}
+
+h1,
+.headline-1 {
+  @include headline-1;
+}
+
+h4,
+.headline-4 {
+  @include headline-4;
+}
+
+@mixin caption {
+  @include headline;
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 146%;
+  text-align: right;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  @include media-breakpoint-between(lg, xxxl) {
+    @include relativeSize(22);
+  }
+
+  @include media-breakpoint-down(xl) {
+    font-size: 14px;
+    line-height: 182%;
+  }
+}
+
+@mixin body-small {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 146%;
+  letter-spacing: unset;
+
+  @include media-breakpoint-down(xl) {
+    font-size: 16px;
+  }
+}
+
+@mixin link {
+  font-family: $font-main;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 146%;
+  letter-spacing: 0.01em;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+.body-small {
+  @include body-small;
+}
+
+.caption {
+  @include caption;
+}

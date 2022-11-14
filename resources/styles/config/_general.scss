@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  margin-bottom: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
+  color: $black;
+  background-color: $white;
+  font-family: $font-main;
+
+  &.overflow-hidden {
+    padding-right: 0px;
+    overflow: hidden;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+  }
+}
