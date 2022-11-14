@@ -17,10 +17,12 @@ export default class Form {
   };
 
   validation = () => {
-    if (this.tel.value === "") {
+    if (this.tel.value === false) {
       this.isTelValid;
+      this.tel.classList.add("form__tel_error");
     } else {
       this.isTelValid = true;
+      this.tel.classList.remove("form__tel_error");
     }
   };
 
@@ -39,41 +41,26 @@ export default class Form {
     }
   };
 
-   sendData( data ) {
-    const XHR = new XMLHttpRequest();
-  
-    let urlEncodedData = "",
-        urlEncodedDataPairs = [],
-        name;
-
-    for( name in data ) {
-      urlEncodedDataPairs.push( encodeURIComponent( name ) + '=' + encodeURIComponent( data[name] ) );
-    }
-  
-    urlEncodedData = urlEncodedDataPairs.join( '&' ).replace( /%20/g, '+' );
-  
-    XHR.addEventListener( 'load', function(event) {
-      this.success.classList.add("success_active");
-    } );
-
-    XHR.addEventListener( 'error', function(event) {
-      alert( 'Oops! Something went wrong.' );
-    } );
-
-    XHR.open( 'POST', 'https://example.com/cors.php' );
-  
-    XHR.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-
-    XHR.send( urlEncodedData );
-  }
-  
   init() {
     this.tel.addEventListener("change", () => this.validation());
-    this.form.addEventListener("submit", (event) => this.handleForm(event));
+    this.form.addEventListener("submit", (event) => {
+      this.handleForm(event);
+
+      const formData = new FormData(this.form);
+      const data = new URLSearchParams(formData);
+
+      fetch("http://reqres.in/api/users", {
+        method: "POST",
+        body: data,
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => {
+          this.success.classList.add('success_active');
+          console.log(error);
+        });
+    });
     this.tel.addEventListener("change", () => this.check());
     this.submit.addEventListener("click", () => this.submited());
-    this.submit.addEventListener("click", () => {
-      this.sendData({ test: this.tel.value });
-    });
   }
 }

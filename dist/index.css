@@ -6128,6 +6128,9 @@ a {
 .form__tel:focus {
   border: 1px solid #18232a;
 }
+.form__tel_error {
+  border: 1px solid #ee0505;
+}
 .form__btn {
   display: inline-block;
   color: #ffffff;
